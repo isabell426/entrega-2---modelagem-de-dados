@@ -1,32 +1,106 @@
-# entrega-2-modelagem-de-dados
-trabalho acadêmico
-
-## Relatório Técnico Final
-- **Integrantes**
-
-- **Raquel de Araujo Maciel Silva - RGM 49040120 - Usuário do GitHub**
-- **Isabel de Araujo Ferreira Maciel – RGM 49038940 - Usuário do GitHub**
-- **Luiz Alencar Silva Feitosa – RGM 49633996 - Usuário do GitHub**
-- **Gabriel de Araujo Ferreira Maciel – RGM 49038796 - Usuário do GitHub**
-- **Vinicius Rodrigues de Brito – RGM 49475428 - Usuário do GitHub**
+# Entrega 2 — Modelo Lógico, Implementação SQL e Apresentação Final
+## Projeto: Sistema de Gestão da Garagem Salles Estúdio Automotivo
 
 
-Nome e natureza da organização: qual organização real o grupo escolheu (com acesso garantido para pesquisa de campo) — pode ser uma empresa (livraria, lanchonete, pet shop), uma ONG, uma associação comunitária ou outra instituição.
-Contexto e porte: com ou sem fins lucrativos; tamanho da operação; número de pessoas envolvidas (funcionários, voluntários, membros, fiéis); volume de atividades (vendas, atendimentos, doações, rituais, eventos). Informe números, não só adjetivos (ex.: "cerca de 300 pedidos por semana", e não "grande movimento") — são eles que justificam o tamanho da massa de dados (seção 4).
+## Integrantes
+
+| Nome completo | RGM | Usuário GitHub |
+|---|---|---|
+| Raquel de Araujo Maciel Silva | RGM 49040120 | [usuário] |
+| Isabel de Araujo Ferreira Maciel| RGM 49038940| [usuário] |
+| Luiz Alencar Silva Feitosa | RGM 49633996 | [usuário] |
+| Vinicius Rodrigues de Brito | RGM 49475428 | [usuário] |
+| Gabriel de Araujo Ferreira Maciel | RGM 49038796 | [usuário] |
 
 
+# 1. Relatório Técnico Final
 
-Problemas e necessidades identificados: qual é a "crise operacional" — o que está desorganizado hoje (planilhas soltas, papel, falta de controle de estoque/doações/cadastros etc.)? Numere cada problema (P1, P2…). Todo problema declarado aqui precisa ser resolvido pelo modelo: deve aparecer no DER e ter ao menos uma consulta gerencial no script SQL (ver a tabela de rastreabilidade da seção 1.6). O problema deve ser de gestão de informações — refazer o site ou melhorar a divulgação da organização, por exemplo, não é um problema que um banco de dados resolva.
-Escopo do sistema: o banco de dados deve reunir todos os dados da organização, não só os de um setor ou processo. Mesmo que os problemas declarados se concentrem em uma área, o modelo não pode servir somente a um recorte (ex.: só o estoque de uma clínica, deixando de fora pacientes e atendimentos).
-Justificativa da escolha: por que essa organização foi escolhida e por que ela é um bom caso para o projeto? Se algum integrante trabalha na organização ou tem vínculo familiar com os responsáveis, declare isso — o vínculo não gera desconto, mas não dispensa a comprovação da entrevista com o responsável, realizada no ambiente da organização.
-Evidências da organização: comprove que a organização existe e que o grupo teve acesso a ela — fotos do local/da visita, link da organização no Google, endereço completo e forma de contato. Prefira o perfil da organização no Google Meu Negócio (Google Business Profile), que é a comprovação mais direta; site e redes sociais complementam. As fotos só são aceitas como arquivos JPG ou PNG dentro do repositório — fotos hospedadas fora dele (Google Drive, Imgur, anexos colados no editor do GitHub etc.) não são consideradas.
-Responsável pela organização: nome e telefone de quem atendeu o grupo — o professor pode entrar em contato para confirmar as informações.
-Relato da entrevista (todos os grupos)
-Relate a entrevista com o responsável pela organização. A entrevista da Entrega 1 pode ser reaproveitada se atender a todos os itens abaixo — inclusive ter sido feita no ambiente da organização, com foto — e se tiver levantado o necessário para os processos, requisitos e regras desta etapa. Se algo precisou ser confirmado depois (ex.: processos típicos levantados por pesquisa), relate também a nova visita.
-Quem: nome e função do entrevistado e quais integrantes do grupo participaram.
-Quando e onde: data e local — a entrevista deve ser realizada no ambiente da organização. A observação presencial da rotina é parte importante do levantamento de requisitos: o que o grupo vê acontecer no local (como um pedido é anotado, onde o estoque é controlado, que papéis e planilhas circulam) muitas vezes difere do que é dito na entrevista. Destaque os achados obtidos pela observação, separados dos obtidos pelas respostas do entrevistado.
-Comprovação: ao menos uma foto da entrevista no local, como arquivo JPG ou PNG no repositório.
-O que foi levantado: o que foi perguntado, o que foi confirmado e, se houve nova visita, o que mudou em relação à Entrega 1 (processos, regras, volumes, problemas). O levantamento completo fica em um arquivo Markdown (.md) à parte no repositório, com link no README — recomenda-se fortemente colocá-lo numa pasta chamada levantamento (ex.: levantamento/levantamento.md). Esse arquivo é um texto organizado, escrito pelo grupo, sobre o que foi levantado — não é um vídeo ou áudio da entrevista, nem a transcrição crua de formulários ou de perguntas e respostas. No README, apresente um resumo do levantamento.
+## 1.1 Revisão do Modelo Conceitual
+
+### Caracterização da organização
+
+**Nome:** Garagem Salles Estúdio Automotivo.  
+**Natureza:** empresa privada do segmento de serviços automotivos de pequeno porte.
+
+**Equipe:** 3 funcionários.  
+**Volume aproximado:** 10 veículos atendidos por dia.  
+**Endereço informado:** Rua Campo da Vinha, 517, Jardim Santa Terezinha, São Paulo – SP, 03572-090.  
+**Responsável:** Leonardo Sales.  
+**Telefone:** (11)95291-3828.  
+**Perfil divulgado:** (https://www.instagram.com/salles.lavagens).
+
+A Garagem Salles Estúdio Automotivo atua com serviços de estacionamento, lavagem e estética automotiva. A operação envolve o recebimento de veículos, identificação do cliente e do automóvel, registro dos serviços solicitados, execução dos serviços, utilização de produtos e insumos, recebimento de pagamentos e liberação do veículo.
+
+A empresa possui três funcionários e atende aproximadamente dez veículos por dia. Para a realização dos serviços, utiliza produtos e insumos da linha Vonixx. Também comercializa produtos utilizados em suas atividades, aplicando, conforme informação fornecida, acréscimo de 30% sobre o custo de aquisição para formação do preço de venda.
+
+### Problemas e necessidades identificados
+
+- **P1 — Cadastro e histórico:** necessidade de centralizar os dados de clientes e veículos e consultar o histórico de atendimentos.
+- **P2 — Acompanhamento dos serviços:** necessidade de acompanhar os serviços solicitados, seus itens, valores, responsáveis e situação.
+- **P3 — Estacionamento:** necessidade de registrar entrada, permanência e saída dos veículos, além dos valores cobrados quando aplicável.
+- **P4 — Controle financeiro:** a empresa não realiza fechamento formal de caixa, dificultando a conferência consolidada dos recebimentos e do faturamento.
+- **P5 — Estoque:** a empresa não possui controle formal de estoque; portanto, não acompanha de forma centralizada as entradas, o consumo interno, as vendas e os saldos disponíveis dos produtos.
+- **P6 — Compras e reposição:** necessidade de registrar compras de produtos e insumos, incluindo itens da linha Vonixx, para conhecer custos, quantidades e datas de aquisição.
+- **P7 — Relatórios gerenciais:** necessidade de reunir dados para analisar quantidade de atendimentos, serviços mais solicitados, vendas, faturamento, movimentação de produtos e desempenho operacional.
+
+### Escopo do sistema
+
+O sistema proposto abrangerá os principais dados operacionais e administrativos da organização: clientes, veículos, funcionários, agendamentos, ordens de serviço, serviços, estacionamento, pagamentos, caixa, fornecedores, compras, produtos, consumo de produtos nos serviços, vendas de produtos e movimentações de estoque.
+
+O sistema é uma proposta acadêmica de gestão de informações. A empresa atualmente não possui controle formal de estoque nem fechamento formal de caixa; essas funcionalidades são melhorias propostas, e não processos informatizados já existentes.
+
+### Justificativa da escolha
+
+A organização foi escolhida por representar uma operação de pequeno porte com processos de atendimento, serviços automotivos, estacionamento, compras e comercialização de produtos. O volume aproximado de dez veículos por dia permite estudar um cenário realista de cadastro, execução de serviços e movimentações financeiras e de materiais.
+A proximidade parental entre o responsável pela instituição e tres integrantes do grupo também foram levadas em conta na hora da escolha.
+
+### Evidências da organização
+
+- Perfil da organização: https://www.instagram.com/salles.lavagens
+- Endereço completo: Rua Campo da Vinha, 517, Jardim Santa Terezinha, São Paulo – SP, 03572-090.
+- Telefone do responsável: (11)95291-3828.
+- Fotografias do estabelecimento e da visita: inserir arquivos JPG ou PNG na pasta `levantamento/evidencias/`.
+- Foto da entrevista realizada no estabelecimento: inserir arquivo JPG ou PNG na mesma pasta.
+
+### Responsável
+
+**Nome:** Leonardo Sales.  
+**Função:** responsável pelo estabelecimento
+**Telefone:** (11)95291-3828.
+
+---
+
+### Relato da entrevista e observação presencial
+
+Foi realizada entrevista com Leonardo Sales, responsável pela Garagem Salles Estúdio Automotivo, no endereço da organização.
+
+**Data:** 15/09/2026.  
+**Local:** Garagem Salles Estúdio Automotivo, Rua Campo da Vinha,517.  
+**Participantes do grupo:** Raquel de Araujo.
+**Informações fornecidas pelo responsável e já registradas pela equipe:**
+1. A empresa possui três funcionários e atende aproximadamente dez veículos por dia.
+2. Utiliza produtos e insumos da linha Vonixx.
+3. Comercializa produtos utilizados em suas atividades, com acréscimo informado de 30% sobre o custo de aquisição.
+4. Atualmente não possui controle formal de estoque.
+5. Atualmente não realiza fechamento formal de caixa.
+
+**Observações presenciais:** Durante a visita presencial ao estabelecimento de lavagem automotiva e estacionamento, foi realizada uma observação do funcionamento e da organização dos serviços oferecidos, bem como da dinâmica de atendimento aos clientes.
+
+Observou-se que os veículos recebem uma numeração de acordo com a ordem de chegada, facilitando sua identificação e organização dentro do estabelecimento. Os atendimentos são realizados seguindo essa mesma ordem, respeitando a sequência de chegada dos automóveis.
+
+O estabelecimento trabalha com o sistema de atendimento leve e traz, no qual os clientes deixam seus veículos para a realização dos serviços e retornam posteriormente para buscá-los. Além disso, existe a modalidade em que alguns clientes deixam seus automóveis estacionados no local por períodos mais longos, retirando-os somente quando necessário e depois dos serviços finalizados.
+
+Foi observado que muitos desses clientes são comerciantes, funcionários ou frequentadores de estabelecimentos vizinhos, que utilizam o serviço devido à praticidade e à localização do estacionamento.
+
+De modo geral, verificou-se que a organização dos veículos é realizada principalmente por meio da numeração e da ordem de chegada. Esse processo contribui para o controle dos automóveis e para a identificação dos serviços, embora também demonstre a importância de um sistema de gerenciamento eficiente para acompanhar a entrada, a permanência, os serviços realizados e a saída de cada veículo.
+
+
+O relato completo, com as perguntas realizadas, respostas confirmadas e observações dos integrantes, está no arquivo [levantamento/levantamento.md](levantamento/levantamento.md).
+
+---
+
+
+ 
 Nível de detalhe — processos, requisitos e regras de negócio (todos os grupos)
 Frases genéricas como "o sistema deve permitir cadastrar cliente" são superficiais e não bastam. Em processos, requisitos e regras, indique quais dados estão envolvidos — todos os campos que aparecem no trabalho (DER, dicionário de dados, modelo lógico):
 Superficial
