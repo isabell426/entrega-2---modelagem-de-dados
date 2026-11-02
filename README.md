@@ -3,8 +3,8 @@ trabalho acadêmico
 
 ## Relatório Técnico Final
 - **Integrantes**
-  
-- **Raquel de Araujo Maciel Silva – RGM 49040120 - Usuário do GitHub**
+
+- **Raquel de Araujo Maciel Silva - RGM 49040120 - Usuário do GitHub**
 - **Isabel de Araujo Ferreira Maciel – RGM 49038940 - Usuário do GitHub**
 - **Luiz Alencar Silva Feitosa – RGM 49633996 - Usuário do GitHub**
 - **Gabriel de Araujo Ferreira Maciel – RGM 49038796 - Usuário do GitHub**
