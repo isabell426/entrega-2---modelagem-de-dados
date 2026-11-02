@@ -1,32 +1,21 @@
-# entrega-2---modelagem-de-dados
+# entrega-2-modelagem-de-dados
 trabalho acadêmico
-Entrega 2 — Modelo Lógico, Implementação SQL e Apresentação Final
-Modelagem de um sistema de gestão de informações para uma organização de pequeno porte
-Este arquivo é o esqueleto dos artefatos finais do grupo, a serem organizados no repositório GitHub. Será corrigido exclusivamente o conteúdo da branch main do repositório — arquivos que estiverem em qualquer outra branch não serão considerados, mesmo que o link enviado aponte para ela. Preencha cada seção com o conteúdo do seu projeto. Alguns itens são documentos Markdown, outros são arquivos separados (diagramas, dicionário de dados, script .sql, massa de dados, slides) — está indicado em cada seção. Nesta etapa vocês atuam como uma software house implementando o banco de dados completo do sistema modelado na Entrega 1 e revisado na seção 1.1 — seja para uma empresa, uma ONG ou outra organização escolhida pelo grupo.
-Lembrete: termos como "empresa" e "negócio" usados abaixo são o vocabulário técnico padrão de modelagem de dados e se aplicam a qualquer tipo de organização, com ou sem fins lucrativos.
-Importante: esta etapa exige uma organização real, com evidências de existência e contato com um responsável.
-Se a organização da Entrega 1 era real, continue com ela — não é permitido trocá-la por outra.
-Se a organização da Entrega 1 era fictícia (ou não teve a existência comprovada na correção), o grupo deve procurar agora uma organização real e refazer, para ela, toda a base da Entrega 1, inclusive o DER (ver seção 1.1, Caso B).
-Em qualquer caso, o grupo deve manter o acesso à organização, pois pode ser necessário voltar a campo para validar regras, tirar dúvidas sobre o processo de normalização ou conferir se a massa de dados reflete a realidade observada.
 
-1. Relatório Técnico Final
-(arquivo Markdown — reúne a maior parte da Dimensão Conceitual, 30%)
-O Relatório Técnico Final deve ser o próprio README.md da raiz da branch main, seguindo a estrutura deste esqueleto. Relatório entregue em outro arquivo (PDF, Word, outro .md, Google Docs, wiki do GitHub etc.) não será corrigido. Os demais artefatos (DER, modelo lógico, dicionário de dados, levantamento, script SQL, massa de dados, slides) ficam em arquivos separados no repositório, com link a partir do README.
-Integrantes
-Nome completo do aluno
-RGM
-Usuário do GitHub
-Nome
-RGM
-usuario
+## Relatório Técnico Final
+- **Integrantes**
+  
+- **Raquel de Araujo Maciel Silva – RGM 49040120 - Usuário do GitHub**
+- **Isabel de Araujo Ferreira Maciel – RGM 49038940 - Usuário do GitHub**
+- **Luiz Alencar Silva Feitosa – RGM 49633996 - Usuário do GitHub**
+- **Gabriel de Araujo Ferreira Maciel – RGM 49038796 - Usuário do GitHub**
+- **Vinicius Rodrigues de Brito – RGM 49475428 - Usuário do GitHub**
 
 
-1.1 Revisão do Modelo Conceitual
-(obrigatória, sem peso próprio — mas todo o restante da entrega é construído e avaliado sobre este modelo: um erro que permanecer no DER revisado se propaga para a conversão, a normalização, o modelo lógico e o script SQL)
-Caracterização da organização (todos os grupos)
-Repita aqui a caracterização da organização — atualizada, mesmo que a organização seja a da Entrega 1. Na Entrega 1, os erros mais comuns foram: porte sem números, problema declarado que depois não aparecia no DER, evidências fora do repositório e modelo cobrindo só parte da organização. Evite-os:
 Nome e natureza da organização: qual organização real o grupo escolheu (com acesso garantido para pesquisa de campo) — pode ser uma empresa (livraria, lanchonete, pet shop), uma ONG, uma associação comunitária ou outra instituição.
 Contexto e porte: com ou sem fins lucrativos; tamanho da operação; número de pessoas envolvidas (funcionários, voluntários, membros, fiéis); volume de atividades (vendas, atendimentos, doações, rituais, eventos). Informe números, não só adjetivos (ex.: "cerca de 300 pedidos por semana", e não "grande movimento") — são eles que justificam o tamanho da massa de dados (seção 4).
+
+
+
 Problemas e necessidades identificados: qual é a "crise operacional" — o que está desorganizado hoje (planilhas soltas, papel, falta de controle de estoque/doações/cadastros etc.)? Numere cada problema (P1, P2…). Todo problema declarado aqui precisa ser resolvido pelo modelo: deve aparecer no DER e ter ao menos uma consulta gerencial no script SQL (ver a tabela de rastreabilidade da seção 1.6). O problema deve ser de gestão de informações — refazer o site ou melhorar a divulgação da organização, por exemplo, não é um problema que um banco de dados resolva.
 Escopo do sistema: o banco de dados deve reunir todos os dados da organização, não só os de um setor ou processo. Mesmo que os problemas declarados se concentrem em uma área, o modelo não pode servir somente a um recorte (ex.: só o estoque de uma clínica, deixando de fora pacientes e atendimentos).
 Justificativa da escolha: por que essa organização foi escolhida e por que ela é um bom caso para o projeto? Se algum integrante trabalha na organização ou tem vínculo familiar com os responsáveis, declare isso — o vínculo não gera desconto, mas não dispensa a comprovação da entrevista com o responsável, realizada no ambiente da organização.
