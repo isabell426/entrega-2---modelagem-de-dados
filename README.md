@@ -409,6 +409,3 @@ Entrega final: Relatório Técnico + Dicionário de Dados + Modelo Conceitual + 
 
 
 
-## DER Conceitual Revisado
-
-O diagrama foi elaborado no brModelo Web e disponibilizado em PDF no repositório do projeto.
