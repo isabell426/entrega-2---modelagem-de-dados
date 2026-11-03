@@ -192,27 +192,48 @@ Se o grupo discordar de algum apontamento e mantiver o modelo como estava, regis
 Caso B — nova organização (a da Entrega 1 era fictícia ou não teve a existência comprovada)
 Além de todos os itens acima, apresente o DER conceitual da nova organização, na notação descrita acima.
 Use a correção da Entrega 1 do grupo como guia dos erros a não repetir, mesmo sendo outra organização.
+
 1.2 Conversão do Modelo Conceitual para o Modelo Lógico
 (vale 7,5%)
 Entidades → Tabelas: como cada entidade virou tabela.
 Atributos → Colunas: conversão correta dos atributos.
 Relacionamentos → Chaves: como os relacionamentos foram traduzidos.
 Cardinalidades: como cada cardinalidade (1:1, 1:N, N:N) foi tratada (inclusive tabelas associativas, se houver).
-Generalização/especialização: se o DER tiver, qual estratégia de conversão foi usada (tabela única, uma tabela por entidade ou só as especializadas) e por quê.
+Generalização/especialização: se o DER tiver, qual estratégia de conversão foi usada (tabela única, uma tabela por entidade ou só as especializadas) e por quê.  
+
+
 1.3 Definição de Chaves Primárias e Estrangeiras
 Liste as PKs e FKs de cada tabela (serve de base para a justificativa técnica abaixo).
+
+Na tabela clientes, a chave primária é id_cliente. Na tabela veiculos, a chave primária é id_veiculo e a estrangeira é id_cliente. Na tabela servicos, a chave primária é id_servico. E na tabela ordens_servico, a chave primária é id_os e a estrangeira é id_veiculo.
+
+
 1.4 Processo de Normalização (1FN, 2FN e 3FN)
 (vale 7,5%)
 1FN: eliminação de grupos repetitivos/atributos multivalorados.
 2FN: eliminação de dependências parciais.
 3FN: eliminação de dependências transitivas.
 Justificativa do processo: por que cada forma normal foi necessária no seu caso.
+
+1FN: separamos os serviços prestados em cada atendimento em registros individuais para garantir valores atômicos.
+
+2FN: eliminamos as dependências parciais, fazendo com que todos os dados dependam exclusivamente da chave primária.
+
+3FN: removemos dependências transitivas para assegurar que os atributos não-chave dependam apenas da chave primária.
+
+Justificativa do processo: a normalização foi fundamental para eliminar redundâncias e garantir a integridade dos dados operacionais da Garagem Salles.
+
+
 1.5 Justificativas Técnicas das Decisões
 (vale 7,5%)
 Justificar as chaves primárias escolhidas.
 Justificar as chaves estrangeiras e os relacionamentos que elas implementam.
 Justificar as restrições aplicadas (unicidade, obrigatoriedade, valores permitidos etc.), citando o código da regra de negócio (RNxx) que cada restrição implementa, quando houver.
 Justificar decisões arquiteturais gerais do modelo.
+
+1.5 Justificativas Técnicas das Decisões. Justificativa das chaves primárias: foram adotados identificadores numéricos inteiros auto-incrementais devido à alta performance de indexação e à garantia de unicidade imutável para cada registro. Justificativa das chaves estrangeiras: as chaves estrangeiras foram implementadas para garantir a integridade referencial entre as tabelas, estabelecendo relacionamentos claros de um para muitos, como entre clientes e veículos. Justificativa das restrições aplicadas: foram aplicadas restrições como UNIQUE para impedir o cadastro duplicado de placas e NOT NULL para garantir a obrigatoriedade de dados essenciais em conformidade com as regras de negócio. Decisões arquiteturais gerais: a escolha do SQLite foi ideal devido à sua portabilidade, leveza e facilidade de implementação, permitindo um desenvolvimento ágil e eficiente do modelo relacional.
+
+
 1.6 Proposta de Arquitetura Analítica para BI e IA
 (vale 7,5%)
 Informações estratégicas que podem ser extraídas dos dados para a gestão da organização.
