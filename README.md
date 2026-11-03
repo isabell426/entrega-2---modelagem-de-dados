@@ -407,3 +407,8 @@ Participação/colaboração, responsabilidade, postura profissional, autonomia
 
 Entrega final: Relatório Técnico + Dicionário de Dados + Modelo Conceitual + Modelo Lógico + Script SQL + Massa de Dados + Repositório GitHub, seguidos da Apresentação Corporativa Final perante o professor e a turma.
 
+
+
+## DER Conceitual Revisado
+
+O diagrama foi elaborado no brModelo Web e disponibilizado em PDF no repositório do projeto.
